@@ -1,3 +1,5 @@
+import time
+
 def show_even_nums():
     for x in range(0, 20):
         if x % 2 == 0:
@@ -57,3 +59,13 @@ def val_crescent(nums):
         if nums[i] > nums[i + 1]:
             return False
     return True
+
+def random_seed():
+    return int(time.time() * 1000) % 100
+
+def randomizar_tupla(tupla):
+    lista = list(tupla)
+    for i in range(len(lista)):
+        j = random_seed() % len(lista)
+        lista[i], lista[j] = lista[j], lista[i]
+    return tuple(lista)
